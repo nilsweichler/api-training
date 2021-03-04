@@ -3,26 +3,30 @@
     <div class="hero">
       <h1>IP Adress Tracker</h1>
       <div class="input-div">
-        <input class="input" type="text" placeholder="Search for any IP adress or domain">
-        <input class="input-button" type="submit" value=">">
+        <input class="input" type="text" v-model="ip" placeholder="Search for any IP adress or domain">
+        <button class="input-button" v-on:click="getData()">></button>
       </div>
     </div>
     <div class="stats">
       <div class="adress">
         <h2>IP Adress</h2>
-        <p>0.0.0.0</p>
+        <p v-if="information.length == 0">127.0.0.1</p>
+        <p v-else>{{ information.ip }}</p>
       </div>
       <div class="location">
         <h2>Location</h2>
-        <p>Brooklyn, NY 10100</p>
+        <p v-if="information.length == 0">Brooklyn, NY 10001</p>
+        <p v-else>{{ information.location.city }}, {{ information.location.region }} {{ information.location.postalCode }}</p>
       </div>
       <div class="timezone">
         <h2>Timezone</h2>
-        <p>UTC -05:00</p>
+        <p v-if="information.length == 0">UTC -05:00</p>
+        <p v-else>{{ information.location.timezone }}</p>
       </div>
       <div class="isp">
         <h2>ISP</h2>
-        <p>SpaceX Starlink</p>
+        <p v-if="information.length == 0">SpaceX</p>
+        <p v-else>{{ information.isp }}</p>
       </div>
     </div>
     <div class="map">
@@ -31,9 +35,25 @@
 </template>
 
 <script>
+import axios from "axios";
+
+const URL = "https://geo.ipify.org/api/v1?apiKey=at_Y3YT6QNu08weV4NVWA2klUWJ3Twtn&ipAddress="
 
 export default {
   name: 'App',
+  data() {
+    return {
+      ip: "",
+      information: [],
+    }
+  },
+  methods: {
+    getData() {
+      axios.get(URL + this.ip).then(res => {
+      this.information = res.data;
+      })
+    },
+  },
 }
 </script>
 
