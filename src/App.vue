@@ -4,7 +4,7 @@
       <h1>IP Adress Tracker</h1>
       <div class="input-div">
         <input class="input" type="text" placeholder="Search for any IP adress or domain">
-        <input class="input-button" type="button" value=">">
+        <input class="input-button" type="submit" value=">">
       </div>
     </div>
     <div class="stats">
@@ -143,7 +143,7 @@ p {
   margin-top: -100px;
   background-image: url("assets/map.png");
   background-repeat: no-repeat;
-  width: 1920px;
+  width:  1886px;
   height: 600px;
   z-index: -5000;
   padding: 8px;
