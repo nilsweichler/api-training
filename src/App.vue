@@ -26,7 +26,6 @@
       </div>
     </div>
     <div class="map">
-      <img :src="'/assets/map.jpg'" alt="">
     </div>
   </section>
 </template>
@@ -45,6 +44,7 @@ export default {
   font-size: 15px;
   font-family: sans-serif;
 }
+
 .hero {
   background-image: url("assets/pattern-bg.png");
   background-repeat: round;
@@ -72,6 +72,7 @@ h2 {
 }
 
 p {
+  margin-top: 5px;
   font-size: 25px;
 }
 
@@ -108,7 +109,7 @@ p {
 }
 
 .adress {
-  padding: 15px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,7 +117,7 @@ p {
 }
 
 .location {
-  padding: 15px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,7 +125,7 @@ p {
 }
 
 .timezone {
-  padding: 15px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,13 +133,20 @@ p {
 }
 
 .isp {
-  padding: 15px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-
-
+.map {
+  margin-top: -100px;
+  background-image: url("assets/map.png");
+  background-repeat: no-repeat;
+  width: 1920px;
+  height: 600px;
+  z-index: -5000;
+  padding: 8px;
+}
 
 </style>
